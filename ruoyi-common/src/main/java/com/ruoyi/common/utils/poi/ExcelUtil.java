@@ -325,7 +325,7 @@ public class ExcelUtil<T> {
         OutputStream out = null;
         try {
             // 取出一共有多少个sheet.
-            double sheetNo = Math.ceil(list.size() / sheetSize);
+            double sheetNo = Math.ceil((double) list.size() / sheetSize);
             for (int index = 0; index <= sheetNo; index++) {
                 createSheet(sheetNo, index);
                 Cell cell = null; // 产生单元格
