@@ -4,20 +4,20 @@
  * Copyright (c) 2019 ruoyi
  */
 !function ($) {
-    
+
     'use strict';
-    
+
     var resetView = function (that) {
         if (that.options.height || that.options.showFooter) {
             setTimeout(that.resetView(), 1);
         }
     };
-    
+
     // 判断是否 iphone
     var isIPhone = function () {
-	    var browserName = navigator.userAgent.toLowerCase();
-	    return /(iPhone|iPad|iPod|iOS)/i.test(browserName);
-	};
+        var browserName = navigator.userAgent.toLowerCase();
+        return /(iPhone|iPad|iPod|iOS)/i.test(browserName);
+    };
 
     var changeView = function (that, width, height) {
         if (that.options.minHeight) {

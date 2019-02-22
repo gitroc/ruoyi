@@ -1,21 +1,20 @@
-
-$(function() {
+$(function () {
     validateRule();
-	$('.imgcode').click(function() {
-		var url = ctx + "captcha/captchaImage?type=" + captchaType + "&s=" + Math.random();
-		$(".imgcode").attr("src", url);
-	});
+    $('.imgcode').click(function () {
+        var url = ctx + "captcha/captchaImage?type=" + captchaType + "&s=" + Math.random();
+        $(".imgcode").attr("src", url);
+    });
 });
 
 $.validator.setDefaults({
-    submitHandler: function() {
-		login();
+    submitHandler: function () {
+        login();
     }
 });
 
 function login() {
-	$.modal.loading($("#btnSubmit").data("loading"));
-	var username = $.common.trim($("input[name='username']").val());
+    $.modal.loading($("#btnSubmit").data("loading"));
+    var username = $.common.trim($("input[name='username']").val());
     var password = $.common.trim($("input[name='password']").val());
     var validateCode = $("input[name='validateCode']").val();
     var rememberMe = $("input[name='rememberme']").is(':checked');
@@ -25,17 +24,17 @@ function login() {
         data: {
             "username": username,
             "password": password,
-            "validateCode" : validateCode,
+            "validateCode": validateCode,
             "rememberMe": rememberMe
         },
-        success: function(r) {
+        success: function (r) {
             if (r.code == 0) {
                 location.href = ctx + 'index';
             } else {
-            	$.modal.closeLoading();
-            	$('.imgcode').click();
-            	$(".code").val("");
-            	$.modal.msg(r.msg);
+                $.modal.closeLoading();
+                $('.imgcode').click();
+                $(".code").val("");
+                $.modal.msg(r.msg);
             }
         }
     });

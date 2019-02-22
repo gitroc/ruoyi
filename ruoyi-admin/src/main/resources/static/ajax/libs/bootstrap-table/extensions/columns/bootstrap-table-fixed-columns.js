@@ -55,7 +55,7 @@
     BootstrapTable.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
 
-        if (!this.options.fixedColumns && !this.options.rightFixedColumns){
+        if (!this.options.fixedColumns && !this.options.rightFixedColumns) {
             return;
         }
         this.initFixedColumns();
@@ -177,7 +177,7 @@
 
 
                     if (that.options.detailView && !that.options.cardView) {
-                       index = i - 1;
+                        index = i - 1;
                     }
                     that.$rightfixedBody.find('thead th[data-field="' + visibleFields[index] + '"]')
                         .find('.fht-cell').width($this.innerWidth() - 1);
