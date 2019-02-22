@@ -37,7 +37,7 @@ public class GenUtils {
     /**
      * 类型转换
      */
-    public static Map<String, String> javaTypeMap = new HashMap<String, String>();
+    public static final Map<String, String> javaTypeMap = new HashMap<String, String>();
 
     static {
         javaTypeMap.put("tinyint" , "Integer" );
