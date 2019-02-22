@@ -90,11 +90,8 @@ public class CommonController {
         } else if (agent.contains("Firefox" )) {
             // 火狐浏览器
             filename = new String(fileName.getBytes(), "ISO8859-1" );
-        } else if (agent.contains("Chrome" )) {
-            // google浏览器
-            filename = URLEncoder.encode(filename, "utf-8" );
         } else {
-            // 其它浏览器
+            // google浏览器和其它浏览器
             filename = URLEncoder.encode(filename, "utf-8" );
         }
         return filename;

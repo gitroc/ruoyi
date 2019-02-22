@@ -134,11 +134,18 @@ public class SysLogininfor extends BaseEntity {
     }
 
     public Date getLoginTime() {
-        return loginTime;
+        if (null == loginTime) {
+            return null;
+        }
+        return (Date) loginTime.clone();
     }
 
     public void setLoginTime(Date loginTime) {
-        this.loginTime = loginTime;
+        if (null == loginTime) {
+            this.loginTime = null;
+        } else {
+            this.loginTime = (Date) loginTime.clone();
+        }
     }
 
     @Override

@@ -134,19 +134,34 @@ public class SysRole extends BaseEntity {
     }
 
     public Long[] getMenuIds() {
-        return menuIds;
+        if (null == menuIds) {
+
+        }
+        return menuIds.clone();
     }
 
     public void setMenuIds(Long[] menuIds) {
-        this.menuIds = menuIds;
+        if (null == menuIds) {
+            this.menuIds = null;
+        } else {
+            this.menuIds = menuIds.clone();
+        }
     }
 
     public Long[] getDeptIds() {
-        return deptIds;
+        if (null == deptIds) {
+            return null;
+        }
+
+        return deptIds.clone();
     }
 
     public void setDeptIds(Long[] deptIds) {
-        this.deptIds = deptIds;
+        if (null == deptIds) {
+            this.deptIds = null;
+        } else {
+            this.deptIds = deptIds.clone();
+        }
     }
 
     @Override

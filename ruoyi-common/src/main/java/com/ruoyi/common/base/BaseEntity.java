@@ -69,11 +69,19 @@ public class BaseEntity implements Serializable {
     }
 
     public Date getCreateTime() {
-        return createTime;
+        if (null == createTime) {
+            return null;
+        }
+
+        return (Date) createTime.clone();
     }
 
     public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+        if (null == createTime) {
+            this.createTime = null;
+        } else {
+            this.createTime = (Date) createTime.clone();
+        }
     }
 
     public String getUpdateBy() {
@@ -85,11 +93,19 @@ public class BaseEntity implements Serializable {
     }
 
     public Date getUpdateTime() {
-        return updateTime;
+        if (null == updateTime) {
+            return null;
+        }
+
+        return (Date) updateTime.clone();
     }
 
     public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+        if (null == updateTime) {
+            this.updateTime = null;
+        } else {
+            this.updateTime = (Date) updateTime.clone();
+        }
     }
 
     public String getRemark() {

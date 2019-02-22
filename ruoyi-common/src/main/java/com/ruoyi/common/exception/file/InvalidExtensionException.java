@@ -18,13 +18,24 @@ public class InvalidExtensionException extends FileUploadException {
 
     public InvalidExtensionException(String[] allowedExtension, String extension, String filename) {
         super("filename : [" + filename + "], extension : [" + extension + "], allowed extension : [" + Arrays.toString(allowedExtension) + "]" );
-        this.allowedExtension = allowedExtension;
+        setAllowedExtension(allowedExtension);
         this.extension = extension;
         this.filename = filename;
     }
 
     public String[] getAllowedExtension() {
-        return allowedExtension;
+        if (null == allowedExtension) {
+            return null;
+        }
+        return allowedExtension.clone();
+    }
+
+    public void setAllowedExtension(String[] allowedExtension) {
+        if (null == allowedExtension) {
+            this.allowedExtension = null;
+        } else {
+            this.allowedExtension = allowedExtension.clone();
+        }
     }
 
     public String getExtension() {

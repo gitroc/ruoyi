@@ -204,11 +204,19 @@ public class SysOperLog extends BaseEntity {
     }
 
     public Date getOperTime() {
-        return operTime;
+        if (null == operTime) {
+            return null;
+        }
+
+        return (Date) operTime.clone();
     }
 
     public void setOperTime(Date operTime) {
-        this.operTime = operTime;
+        if (null == operTime) {
+            this.operTime = null;
+        } else {
+            this.operTime = (Date) operTime.clone();
+        }
     }
 
     @Override

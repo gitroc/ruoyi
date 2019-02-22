@@ -34,7 +34,7 @@ public class BaseException extends RuntimeException {
     public BaseException(String module, String code, Object[] args, String defaultMessage) {
         this.module = module;
         this.code = code;
-        this.args = args;
+        setArgs(args);
         this.defaultMessage = defaultMessage;
     }
 
@@ -75,7 +75,18 @@ public class BaseException extends RuntimeException {
     }
 
     public Object[] getArgs() {
-        return args;
+        if (null == args) {
+            return null;
+        }
+        return args.clone();
+    }
+
+    public void setArgs(Object[] args) {
+        if (null == args) {
+            this.args = null;
+        } else {
+            this.args = args.clone();
+        }
     }
 
     public String getDefaultMessage() {

@@ -127,19 +127,34 @@ public class SysUserOnline extends BaseEntity {
     }
 
     public Date getStartTimestamp() {
-        return startTimestamp;
+        if (null == startTimestamp) {
+            return null;
+        }
+
+        return (Date) startTimestamp.clone();
     }
 
     public void setStartTimestamp(Date startTimestamp) {
-        this.startTimestamp = startTimestamp;
+        if (null == startTimestamp) {
+            this.startTimestamp = null;
+        } else {
+            this.startTimestamp = (Date) startTimestamp.clone();
+        }
     }
 
     public Date getLastAccessTime() {
-        return lastAccessTime;
+        if (null == lastAccessTime) {
+            return null;
+        }
+        return (Date) lastAccessTime.clone();
     }
 
     public void setLastAccessTime(Date lastAccessTime) {
-        this.lastAccessTime = lastAccessTime;
+        if (null == lastAccessTime) {
+            this.lastAccessTime = null;
+        } else {
+            this.lastAccessTime = (Date) lastAccessTime.clone();
+        }
     }
 
     public Long getExpireTime() {

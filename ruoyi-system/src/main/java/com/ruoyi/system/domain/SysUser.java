@@ -241,11 +241,19 @@ public class SysUser extends BaseEntity {
     }
 
     public Date getLoginDate() {
-        return loginDate;
+        if (null == loginDate) {
+            return null;
+        }
+
+        return (Date) loginDate.clone();
     }
 
     public void setLoginDate(Date loginDate) {
-        this.loginDate = loginDate;
+        if (null == loginDate) {
+            this.loginDate = null;
+        } else {
+            this.loginDate = (Date) loginDate.clone();
+        }
     }
 
     public SysDept getDept() {
@@ -268,19 +276,34 @@ public class SysUser extends BaseEntity {
     }
 
     public Long[] getRoleIds() {
-        return roleIds;
+        if (null == roleIds) {
+            return null;
+        }
+        return roleIds.clone();
     }
 
     public void setRoleIds(Long[] roleIds) {
-        this.roleIds = roleIds;
+        if (null == roleIds) {
+            this.roleIds = null;
+        } else {
+            this.roleIds = roleIds.clone();
+        }
     }
 
     public Long[] getPostIds() {
-        return postIds;
+        if (null == postIds) {
+            return null;
+        }
+
+        return postIds.clone();
     }
 
     public void setPostIds(Long[] postIds) {
-        this.postIds = postIds;
+        if (null == postIds) {
+            this.postIds = null;
+        } else {
+            this.postIds = postIds.clone();
+        }
     }
 
     @Override
