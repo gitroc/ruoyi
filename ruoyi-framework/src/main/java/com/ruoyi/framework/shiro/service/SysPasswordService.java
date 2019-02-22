@@ -46,9 +46,9 @@ public class SysPasswordService {
             retryCount = new AtomicInteger(0);
             loginRecordCache.put(loginName, retryCount);
         }
-        if (retryCount.incrementAndGet() > Integer.valueOf(maxRetryCount).intValue()) {
+        if (retryCount.incrementAndGet() > Integer.parseInt(maxRetryCount)) {
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(loginName, Constants.LOGIN_FAIL, MessageUtils.message("user.password.retry.limit.exceed" , maxRetryCount)));
-            throw new UserPasswordRetryLimitExceedException(Integer.valueOf(maxRetryCount).intValue());
+            throw new UserPasswordRetryLimitExceedException(Integer.parseInt(maxRetryCount));
         }
 
         if (!matches(user, password)) {

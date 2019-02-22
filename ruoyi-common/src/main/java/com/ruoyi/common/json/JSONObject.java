@@ -180,7 +180,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 
         final StringTokenizer st = new StringTokenizer(s, "[]" );
         while (st.hasMoreTokens()) {
-            final int index = Integer.valueOf(st.nextToken());
+            final int index = Integer.parseInt(st.nextToken());
             if (index < 0) {
                 throw new RuntimeException(String.format("Illegal index %1$d in \"%2$s\"" , index, s));
             }

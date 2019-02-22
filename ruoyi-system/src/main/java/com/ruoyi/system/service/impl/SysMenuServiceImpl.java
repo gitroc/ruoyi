@@ -246,7 +246,7 @@ public class SysMenuServiceImpl implements ISysMenuService {
      */
     @Override
     public String checkMenuNameUnique(SysMenu menu) {
-        Long menuId = StringUtils.isNull(menu.getMenuId()) ? -1L : menu.getMenuId();
+        Long menuId = StringUtils.isNull(menu.getMenuId()) ? Long.valueOf(-1) : menu.getMenuId();
         SysMenu info = menuMapper.checkMenuNameUnique(menu.getMenuName(), menu.getParentId());
         if (StringUtils.isNotNull(info) && info.getMenuId().longValue() != menuId.longValue()) {
             return UserConstants.MENU_NAME_NOT_UNIQUE;

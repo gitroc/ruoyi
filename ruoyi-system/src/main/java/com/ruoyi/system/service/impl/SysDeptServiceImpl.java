@@ -226,7 +226,7 @@ public class SysDeptServiceImpl implements ISysDeptService {
      */
     @Override
     public String checkDeptNameUnique(SysDept dept) {
-        Long deptId = StringUtils.isNull(dept.getDeptId()) ? -1L : dept.getDeptId();
+        Long deptId = StringUtils.isNull(dept.getDeptId()) ? Long.valueOf(-1) : dept.getDeptId();
         SysDept info = deptMapper.checkDeptNameUnique(dept.getDeptName(), dept.getParentId());
         if (StringUtils.isNotNull(info) && info.getDeptId().longValue() != deptId.longValue()) {
             return UserConstants.DEPT_NAME_NOT_UNIQUE;

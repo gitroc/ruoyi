@@ -100,7 +100,7 @@ public class SysConfigServiceImpl implements ISysConfigService {
      */
     @Override
     public String checkConfigKeyUnique(SysConfig config) {
-        Long configId = StringUtils.isNull(config.getConfigId()) ? -1L : config.getConfigId();
+        Long configId = StringUtils.isNull(config.getConfigId()) ? Long.valueOf(-1) : config.getConfigId();
         SysConfig info = configMapper.checkConfigKeyUnique(config.getConfigKey());
         if (StringUtils.isNotNull(info) && info.getConfigId().longValue() != configId.longValue()) {
             return UserConstants.CONFIG_KEY_NOT_UNIQUE;
