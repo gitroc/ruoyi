@@ -2,6 +2,8 @@ package com.ruoyi.generator.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+
 /**
  * 字段类型配置 由数据库字段的注释解析而来
  * 注释结构示例:{"title": "状态", "type": "dict", "value": "sys_common_status"} {"title": "登录时间", "type": "date"}
@@ -9,7 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @author ruoyi
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ColumnConfigInfo {
+public class ColumnConfigInfo implements Serializable {
+    private static final long serialVersionUID = -4407888480620056157L;
     /**
      * 属性标题
      */

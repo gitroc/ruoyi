@@ -3,12 +3,15 @@ package com.ruoyi.generator.domain;
 import com.ruoyi.common.json.JSON;
 import com.ruoyi.common.utils.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * ry数据库表列信息
  *
  * @author ruoyi
  */
-public class ColumnInfo {
+public class ColumnInfo implements Serializable {
+    private static final long serialVersionUID = -3280325022892096677L;
     /**
      * 字段名称
      */
